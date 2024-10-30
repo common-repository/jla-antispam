@@ -1,0 +1,210 @@
+:root{
+	--widthOutputModifier: 20px;
+}
+
+/* Utilitaire */
+.toplevel_page_jlaantispam_config_main .jlaantispam_hidden{
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.toplevel_page_jlaantispam_config_main .disabledInputChild {
+	pointer-events: none;
+}
+
+.toplevel_page_jlaantispam_config_main .disabledChildFilter {
+    filter: brightness(0.5) saturate(0);
+    pointer-events: none;
+	user-select: none;
+	opacity: 0.5;
+}
+
+/* Word(s) class(es) */
+.toplevel_page_jlaantispam_config_main .jlaantispam_word .switch.admin,
+.outputDeleter{
+	margin-right: 10px;
+}
+
+.toplevel_page_jlaantispam_config_main .jlaantispam_word .switch.admin{
+	--width: calc( var(--widthOutputModifier) / 0.5333 ); /* pour avoir une hauteur de 20px */
+}
+.toplevel_page_jlaantispam_config_main .jlaantispam_word.switch.admin input:checked + .slider{
+
+}
+
+.toplevel_page_jlaantispam_config_main .jlaantispam_wordList{
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	-webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.toplevel_page_jlaantispam_config_main .jlaantispam_word{
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	-webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+	-webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+	width: fit-content;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+	margin-right: 20px;
+	background: rgb(13 21 44);
+}
+.toplevel_page_jlaantispam_config_main .jlaantispam_word:not(.noOutputDeleter){
+	padding-right: 23px;
+}
+
+
+/* Li deleter */
+.toplevel_page_jlaantispam_config_main .outputDeleter{
+	position: relative;
+	display: inline-block;
+	width: var(--widthOutputModifier);
+	height: var(--widthOutputModifier);
+	cursor: pointer;
+	-webkit-transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+	border-radius: 50%;
+	background-color: #F3215C;
+}
+.toplevel_page_jlaantispam_config_main .outputDeleter::before,
+.toplevel_page_jlaantispam_config_main .outputDeleter::after{
+	content:"";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 2px;
+	height: 50%;
+	border-radius: 2px;
+	background-color: white;
+	-webkit-transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toplevel_page_jlaantispam_config_main .outputDeleter::before{
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+.toplevel_page_jlaantispam_config_main .outputDeleter::after{
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+.toplevel_page_jlaantispam_config_main .outputDeleter:hover{
+	transform: scale(1.2);
+}
+.toplevel_page_jlaantispam_config_main .outputDeleter:hover::before,
+.toplevel_page_jlaantispam_config_main .outputDeleter:hover::after{
+	height: 55%;
+}
+
+
+/* Switch class */
+.toplevel_page_jlaantispam_config_main .switch.admin {
+	--width: 45px;
+	position: relative;
+	display: inline-block;
+	width: var(--width);
+	height: calc(var(--width) * 0.56);
+}
+
+/* Hide default HTML checkbox */
+.toplevel_page_jlaantispam_config_main .switch.admin input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+/* The slider */
+.toplevel_page_jlaantispam_config_main .switch.admin .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+	overflow: hidden;
+}
+
+.toplevel_page_jlaantispam_config_main .switch.admin .slider:before {
+	position: absolute;
+	content: "";
+	height: calc(var(--width) * 0.43);
+	width: calc(var(--width) * 0.43);
+	left: calc(var(--width) * 0.066);
+	bottom: calc(var(--width) * 0.066);
+	background-color: white;
+	z-index: 1;
+
+	filter: drop-shadow(2px 4px 4px black);
+
+	-webkit-transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toplevel_page_jlaantispam_config_main .switch.admin input:checked + .slider {
+	background-color: #2196F3;
+}
+
+.toplevel_page_jlaantispam_config_main .switch.admin input:focus + .slider {
+	box-shadow: 0 0 3px #00000042;
+}
+
+.toplevel_page_jlaantispam_config_main .switch.admin input + .slider::after {
+	content:"";
+	width: 100%;
+	height: 120%;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%) rotate(-25deg);
+
+	background: rgb(0,0,0);
+	background: -moz-linear-gradient(0deg, rgba(0,0,0,1) -100%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) -100%, rgba(0,0,0,0) 100%);
+	background: linear-gradient(0deg, rgba(0,0,0,1) -100%, rgba(0,0,0,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+
+	-webkit-transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toplevel_page_jlaantispam_config_main .switch.admin input:checked + .slider::after {
+	transform: translateX(-50%) rotate(25deg);
+}
+.toplevel_page_jlaantispam_config_main .switch.admin input:checked + .slider::before {
+	-webkit-transform: translateX(calc(var(--width) * 0.43));
+	-ms-transform: translateX(calc(var(--width) * 0.43));
+	transform: translateX(calc(var(--width) * 0.43));
+}
+.toplevel_page_jlaantispam_config_main .switch.admin .slider.round {
+border-radius: calc(var(--width) * 0.56);
+}
+
+.toplevel_page_jlaantispam_config_main .switch.admin .slider.round:before {
+	border-radius: 50%;
+}
+
+.toplevel_page_jlaantispam_config_main .disabledInputChild.switch.admin .slider.round::before{
+	content:none;
+}
+
+
+/* Autres */
+.toplevel_page_jlaantispam_config_main #deactivatedCats .jlaantispam_word .switch.admin{
+	transform: scaleX(-1);
+}
+.toplevel_page_jlaantispam_config_main #deactivatedCats .switch.admin input:checked + .slider{
+	background-color: #F3215C;
+}
+.toplevel_page_jlaantispam_config_main #deactivatedCats .switch.admin input + .slider{
+	background-color: #2196F3;
+}
